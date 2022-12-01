@@ -3,8 +3,20 @@
 namespace Advent;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Common extends Command {
+
+    abstract public function performSolution(array $input): int;
+    
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $input = $this->loadInput(__DIR__."/input.txt");
+        $solution = $this-performSolution($input);                
+        $this->printSolution((string) $solution);
+        return Command::SUCCESS;
+    }
 
     protected function loadInput($filename): array {
         $lines = [];

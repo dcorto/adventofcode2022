@@ -2,9 +2,6 @@
 
 namespace Advent\Day1;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 use Advent\Common;
 
 class SolutionB extends Common {
@@ -14,10 +11,8 @@ class SolutionB extends Common {
 
     protected static $defaultName = 'solution:1:b';
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    public function performSolution(array $input): int 
     {
-        $input = $this->loadInput(__DIR__."/input.txt");
-        
         $calories = [];
         $i = 0;
         foreach ($input as $line) {    
@@ -34,11 +29,7 @@ class SolutionB extends Common {
             }
         }
 
-        $solution = $this->getTop($calories, SolutionB::TOP_NUMBER);
-        
-        $this->printSolution((string) $solution);
-
-        return Command::SUCCESS;
+        return $this->getTop($calories, SolutionB::TOP_NUMBER);            
     }
 
     private function getTop(array $calories, int $number): int
