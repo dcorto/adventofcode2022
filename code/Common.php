@@ -9,11 +9,13 @@ use Symfony\Component\Console\Output\OutputInterface;
 abstract class Common extends Command {
 
     abstract public function performSolution(array $input): int;
+
+    abstract protected function getPath(): string;
     
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $input = $this->loadInput(__DIR__."/input.txt");
-        $solution = $this-performSolution($input);                
+        $input = $this->loadInput($this->getPath() . "/input.txt");
+        $solution = $this->performSolution($input);                
         $this->printSolution((string) $solution);
         return Command::SUCCESS;
     }

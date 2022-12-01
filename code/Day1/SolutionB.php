@@ -49,4 +49,9 @@ class SolutionB extends Common {
 
         return $sum;
     }
+
+    protected function getPath(): string 
+    {
+        return __DIR__;
+    }
 }
