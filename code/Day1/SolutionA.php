@@ -7,7 +7,6 @@ use Advent\Common;
 class SolutionA extends Common {
 
     private const EMPTY = PHP_EOL;
-    protected const LOL = 'Day1';
 
     protected static $defaultName = 'solution:1:a';
 

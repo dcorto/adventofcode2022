@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace Test\Day1;
+
 use PHPUnit\Framework\TestCase;
 use Advent\Day1;
 

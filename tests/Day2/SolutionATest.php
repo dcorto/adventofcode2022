@@ -1,25 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace Test\Day1;
+namespace Test\Day2;
 
 use PHPUnit\Framework\TestCase;
-use Advent\Day1;
+use Advent\Day2;
 
-final class SolutionBTest extends TestCase
+final class SolutionATest extends TestCase
 {
     public function testInstance(): void
     {
-        $sut = new Day1\SolutionB();        
+        $sut = new Day2\SolutionA();        
         $this->assertInstanceOf(
-            Day1\SolutionB::class,
+            Day2\SolutionA::class,
             $sut
         );
     }
 
     public function testSolution(): void
     {
-        $expected = 45000;
-        $sut = new Day1\SolutionB();    
+        $expected = 15;
+        $sut = new Day2\SolutionA();    
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);
         $this->assertEquals($expected, $actual);
