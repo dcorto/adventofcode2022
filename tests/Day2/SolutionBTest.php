@@ -18,7 +18,7 @@ final class SolutionBTest extends TestCase
 
     public function testSolution(): void
     {
-        $expected = 4;
+        $expected = 12;
         $sut = new Day2\SolutionB();    
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);

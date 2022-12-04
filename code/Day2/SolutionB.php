@@ -38,11 +38,8 @@ class SolutionB extends Common {
 
     public function performSolution(array $input): int 
     {
-        $solution = 0;
-
-            
-        //foreach($input as $line) {
-            $line = "A Y";
+        $solution = 0;    
+        foreach($input as $line) {            
             $playInput = $this->parseInputLine($line);
 
             $opponentMovement = trim($playInput[0]);
@@ -50,11 +47,9 @@ class SolutionB extends Common {
 
             $scoreTarget = $this->getTargetScore($target);
             $neededMove = $this->getNeededMove($opponentMovement, $target);
-            $scoreMove = $this->getMoveScore($neededMove);    
-
-            $solution = $solution + ($scoreTarget+$scoreMove);
-        //}      
-
+            $scoreMove = $this->getMoveScore($neededMove);
+            $solution = $solution + ($scoreTarget + $scoreMove);
+        }
         return $solution;
     }
 
@@ -68,7 +63,7 @@ class SolutionB extends Common {
         return explode(" ", $line);
     }
 
-    private function getNeededMove($opponentMovement, $target): string
+    private function getNeededMove(string $opponentMovement, string $target): string
     {
         if ($target === SolutionB::TARGET_DRAW) {
             return $opponentMovement;
@@ -97,16 +92,16 @@ class SolutionB extends Common {
 
     }
 
-    private function getTargetScore($target): int 
+    private function getTargetScore(string $target): int 
     {
-        if(SolutionB::TARGET_LOOSE) {
+        if(SolutionB::TARGET_LOOSE === $target) {
             return SolutionB::LOOSE;
         }
-        if(SolutionB::TARGET_WIN) {
+        if(SolutionB::TARGET_WIN === $target) {
             return SolutionB::WIN;
         }
-        if(SolutionB::TARGET_DRAW) {
-            return SolutionB::DRAW;
+        if(SolutionB::TARGET_DRAW === $target) {
+            return SolutionB::DRAWN;
         }   
 
     }
@@ -127,6 +122,4 @@ class SolutionB extends Common {
 
         throw new \Exception("not valid movement choosed");
     }
-
-    
 }
