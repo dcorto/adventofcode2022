@@ -20,7 +20,11 @@ class SolutionA extends Common {
     {
         $solution = 0;
 
-        $solution = $this->getItemPriority('Z');
+        //split rucksacks or search common letters
+        
+        //cal the priority of common items
+
+        //$solution = $this->getItemPriority('Z');
 
         return $solution;  
     }
@@ -32,7 +36,8 @@ class SolutionA extends Common {
 
     private function splitRucksack(string $rucksack): array
     {
-        
+        //TODO
+        return [];
     }
 
     private function getItemPriority(string $item): int
