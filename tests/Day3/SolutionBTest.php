@@ -18,7 +18,7 @@ final class SolutionBTest extends TestCase
 
     public function testSolution(): void
     {
-        $expected = 0;
+        $expected = 70;
         $sut = new Day3\SolutionB();    
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);
@@ -30,7 +30,7 @@ final class SolutionBTest extends TestCase
         $fp = fopen($filename, "r") or die ('Unable to open file ' . $filename);
 
         while(!feof($fp)) {
-            $lines[] = fgets($fp);
+            $lines[] = trim(fgets($fp));
         }
 
         return $lines;
