@@ -6,7 +6,7 @@ use Advent\Common;
 
 class SolutionA extends Common {
 
-    private $alphabet;
+    private array $alphabet;
 
     public function __construct() 
     {
