@@ -20,11 +20,10 @@ class SolutionA extends Common {
     {
         $solution = 0;
 
-        //split rucksacks or search common letters
-        
-        //cal the priority of common items
-
-        //$solution = $this->getItemPriority('Z');
+        foreach($input as $rucksack) {
+            $common = $this->searchCommonItem($rucksack);
+            $solution = $solution + $this->getItemPriority($common);
+        }
 
         return $solution;  
     }
@@ -33,13 +32,7 @@ class SolutionA extends Common {
     {
         return __DIR__;
     }
-
-    private function splitRucksack(string $rucksack): array
-    {
-        //TODO
-        return [];
-    }
-
+    
     private function getItemPriority(string $item): int
     {
         //from a item use alphabet for calc the prio
@@ -49,6 +42,24 @@ class SolutionA extends Common {
             throw new \Exception("the item '" . $item . "' was not found for priority");
         }
         return $priority + 1;
+    }
+
+    private function searchCommonItem(string $rucksack): string
+    {
+        $firstCompartment = [];
+
+        for ($i = 0; $i < strlen($rucksack)/2; $i++){
+            $firstCompartment[$i] = $rucksack[$i];
+        }
+
+        for ($i = strlen($rucksack)-1; $i >= strlen($rucksack)/2; $i--){
+            if(in_array($rucksack[$i], $firstCompartment)) {
+                return $rucksack[$i];
+            }
+        }
+
+        throw new \Exception("no common item found in rucksack: '" . $rucksack . "'");
+
     }
     
     private function getAlphabet(): array
