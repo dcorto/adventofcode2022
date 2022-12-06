@@ -29,8 +29,6 @@ class SolutionB extends Common {
             $groups[$y][] = $input[$i];            
         }
 
-        //print_r($groups); die();
-        
         foreach($groups as $group) {
             $badge = $this->searchBadge($group);
             $solution = $solution + $this->getItemPriority($badge);

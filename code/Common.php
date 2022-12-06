@@ -25,7 +25,11 @@ abstract class Common extends Command {
         $fp = fopen($filename, "r") or die ('Unable to open file ' . $filename);
 
         while(!feof($fp)) {
-            $lines[] = trim(fgets($fp));
+            $line = fgets($fp);
+            if($line != "\n") {
+                $line = trim($line);
+            }
+            $lines[] = $line;
         }
 
         return $lines;

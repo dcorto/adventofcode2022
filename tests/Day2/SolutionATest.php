@@ -2,10 +2,10 @@
 
 namespace Test\Day2;
 
-use PHPUnit\Framework\TestCase;
+use Test\BaseTest;
 use Advent\Day2;
 
-final class SolutionATest extends TestCase
+final class SolutionATest extends BaseTest
 {
     public function testInstance(): void
     {
@@ -23,16 +23,5 @@ final class SolutionATest extends TestCase
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);
         $this->assertEquals($expected, $actual);
-    }
-
-    protected function loadInput($filename): array {
-        $lines = [];
-        $fp = fopen($filename, "r") or die ('Unable to open file ' . $filename);
-
-        while(!feof($fp)) {
-            $lines[] = fgets($fp);
-        }
-
-        return $lines;
     }
 }

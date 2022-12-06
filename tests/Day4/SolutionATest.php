@@ -1,27 +1,27 @@
 <?php declare(strict_types=1);
 
-namespace Test\Day3;
+namespace Test\Day4;
 
 use Test\BaseTest;
-use Advent\Day3;
+use Advent\Day4;
 
-final class SolutionBTest extends BaseTest
+final class SolutionATest extends BaseTest
 {
     public function testInstance(): void
     {
-        $sut = new Day3\SolutionB();        
+        $sut = new Day4\SolutionA();        
         $this->assertInstanceOf(
-            Day3\SolutionB::class,
+            Day4\SolutionA::class,
             $sut
         );
     }
 
     public function testSolution(): void
     {
-        $expected = 70;
-        $sut = new Day3\SolutionB();    
+        $expected = 0;
+        $sut = new Day4\SolutionA();    
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);
         $this->assertEquals($expected, $actual);
-    }
+    }    
 }
