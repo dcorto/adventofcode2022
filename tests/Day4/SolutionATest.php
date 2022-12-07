@@ -18,7 +18,7 @@ final class SolutionATest extends BaseTest
 
     public function testSolution(): void
     {
-        $expected = 0;
+        $expected = 2;
         $sut = new Day4\SolutionA();    
         $input = $this->loadInput(__DIR__."/input.txt");
         $actual = $sut->performSolution($input);
